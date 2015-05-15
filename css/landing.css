@@ -1,0 +1,18 @@
+.search-form {
+	padding: 10px 20px;
+    border-radius: 5px;
+	overflow: hidden;
+	margin: 50px auto;
+	background: url(../img/Clearwater.jpg) center center;
+	z-index: 1;
+	color: #FFF;
+}
+h1 {
+	text-align: center;
+	font-size: 2em;
+	margin: 10px 0;
+	color: #FFF;
+}
+h5, h6 {
+	color: #FFF;
+}

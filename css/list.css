@@ -1,0 +1,65 @@
+.summary {
+	position: fixed;
+	top: 20px;
+	left: 10px;
+	z-index: 2;
+	background: #FFF;
+	padding: 8px;
+	width: 80%;
+	vertical-align: top;
+
+-khtml-opacity:.50; 
+ -moz-opacity:.50; 
+ -ms-filter:”alpha(opacity=50)”;
+  filter:alpha(opacity=50);
+  filter: progid:DXImageTransform.Microsoft.Alpha(opacity=0.5);
+  opacity:.50; 
+
+}
+.summary span {
+	float: left;
+	margin-right: 5px;
+	
+ filter: alpha(opacity=90);
+-moz-opacity: 0.9;
+-khtml-opacity: 0.9;
+opacity: 0.9;
+
+}
+.star-ratings {
+	font-size: .65em;
+	vertical-align: middle;
+	line-height: 1.45em;
+	color: rosybrown;
+}
+
+
+#alpha_wrapper {
+	width: 540px;
+	height: 360px;
+	float: left;
+	position: relative;
+	color: #fff;
+	overflow: hidden;
+}
+
+	#alpha_2 {
+		background: transparent url(bicycle.jpg) no-repeat 0 0;
+		width: 540px;
+		height: 440px;
+		float: left;
+		filter: alpha(opacity=30);
+		-moz-opacity: 0.3;
+		-khtml-opacity: 0.3;
+		opacity: 0.3;
+	}
+
+	#text_holder_2 {
+		background: blue;
+		position: absolute;
+		top: 20px;
+		left: 20px;
+		width: 500px;
+		overflow: hidden;
+		clear: both;
+	}

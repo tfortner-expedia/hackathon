@@ -1,0 +1,125 @@
+
+/*-  CSS "libraries"
+----------------------------------------------------------------------*/
+@import url("reset.css");
+
+
+/*-  Core, patch-free design
+----------------------------------------------------------------------*/
+@import url("core.css");
+
+.set-width {
+	width: 980px;
+}
+
+.major-header {
+	background: #F7F7F5;
+	margin: 0;
+	padding: 0;
+	border-color: #DFE0DE;
+	border-top-style: solid;
+	border-top-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+}
+.major-header-container {
+	margin: 28px auto;
+	padding: 0 auto;
+
+}
+.list-container {
+	margin: 28px auto;
+	padding: 0 auto;
+}
+
+
+h1 {
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-weight: bold;
+	line-height: normal;
+	font-size: 28px;
+	color: #333;
+	margin-bottom: 4px;
+}
+.subheader {
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-weight: normal;
+	font-size: 16px;
+	color: #999;
+}
+
+.grid {
+	letter-spacing: -0.31em;
+}
+.grid-1-3 {
+	display: inline-block;
+	vertical-align: top;
+	width: 33%;
+}
+
+
+
+.1-box {
+	background: #FFF;
+	width: 25%;
+	border: 1px solid #e4e4e2;
+    border-radius: 3px;
+    box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.1);
+    float: left;
+}
+
+.1-box img {
+	display: inline-block;
+	height: auto;
+	max-width: 100%;
+	overflow: hidden;
+	margin: 5px;
+	padding: 0;
+}
+.1-box .property-information-and-pricing-summary {
+	margin: 0 5px 5px 5px;
+	padding: 0;
+}
+.1-box .property-information-and-pricing-summary li {
+	line-height: 1.25em;
+	font-size: 14px;
+}
+.1-box .property-information-and-pricing-summary li.hotel-name {
+	color: #333;
+}
+.1-box .property-information-and-pricing-summary li.price {
+	color: #4e8f00;
+	text-align: right;
+	font-size: 16px;
+}
+.1-box .property-information-and-pricing-summary li.price i {
+	font-size: 12px;
+}
+
+
+
+
+
+
+
+.button-disable {
+	
+}
+
+.button-success,
+.button-error,
+.button-secondary {
+    color: #FFF;
+    border-radius: 4px;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+.button-success {
+    background: rgb(28, 184, 65); /* this is a green */
+}
+.button-error {
+    background: rgb(202, 60, 60); /* this is a maroon */
+}
+.button-secondary {
+    background: rgb(66, 184, 221); /* this is a light blue */
+}
+
