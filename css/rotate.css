@@ -1,61 +1,73 @@
+h1 {
+  color: white;
+}
+
+body {
+  background-color: #2A2826;
+  /* this is wasteful with HTTP resources, but fun (like this comment!) */
+  /*background-image: url("../img/loading-ring.gif");*/
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#cards {
+  margin-top: 20px;
+  position: relative;
+  
+  margin: 50px auto 0px auto;
+}
+
 .card {
-  position: absolute;
-  top: 100px;
-  left: 100px;
+  position: relative;
+  top: 0px;
+  left: 0px;
   
-  perspective: 1000;
-  -webkit-perspective: 1000;
-  
+  /* we use transitions for the flip */
   transition: 0.6s;
   -webkit-transition: 0.6s;
   
-  -moz-animation-duration: 3s;
-  -webkit-animation-duration: 3s;
+  /* and CSS animation for the swipes  */
+  -moz-animation-duration: 2.25s;
+  -webkit-animation-duration: 2.25s;
   -moz-animation-name: slidein;
   -webkit-animation-name: slidein;
 }
 
 .swiped {
-  margin-left:100%;
-  -moz-animation-duration: 1s;
-  -webkit-animation-duration: 1s;
+  margin-left: 120%;
+  -moz-animation-duration: 1.5s;
+  -webkit-animation-duration: 1.5s;
   -moz-animation-name: slideout;
   -webkit-animation-name: slideout;
 }
 
 @-moz-keyframes slidein {
   from {
-    margin-left:-100%;
+    left: -100%;
   }
   to {
-    margin-left:0%;
+    left: 0px;
   }
 }
 
 @-webkit-keyframes slidein {
   from {
-    margin-left:-100%;
+    left: -100%;
   }
   to {
-    margin-left:0%;
+    left: 0px;
   }
 }
 
 @-moz-keyframes slideout {
-  from {
-    margin-left:0%;
-  }
   to {
-    margin-left:100%;
+    transform: translate(4000px ,0px) !important;
   }
 }
 
 @-webkit-keyframes slideout {
-  from {
-    margin-left:0%; 
-  }
   to {
-    margin-left:100%;
+    -webkit-transform: translate(4000px ,0px) !important;
   }
 }
 
@@ -76,8 +88,7 @@
 }
 /* I need to get rid of this hardcoding  */
 .flip-container, .cardFront, .cardBack {
-  width: 970px;
-  height: 620px;
+
 }
 
 /*  Sets up the animation for the flip */
@@ -93,7 +104,7 @@
 /* Stack the front and back on top of each and don't show the backs  */
 .cardFront, .cardBack {
   backface-visibility: hidden;
-	-webkit-backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 
 	position: absolute;
 	top: 0;
@@ -109,6 +120,7 @@
 
 /* Make the back scroll if there is overflow and start out already flipped */
 .cardBack {
+  display: inline-block;
   overflow: scroll;
   transform: rotateY(180deg);
 	-webkit-transform: rotateY(180deg);
