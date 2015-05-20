@@ -25,13 +25,11 @@
             var xTransform = getRandomInt(-50, 50);
             var yTransform = getRandomInt(-50, 50);
             var rotate = getRandomInt(-10, 10);
-            var webkitTransform = "translate(" + xTransform + "px, " + yTransform + "px) rotate(" + rotate + "deg)"
-            var transform = "translate(" + xTransform + "px, " + yTransform + "px) rotate(" + rotate + "deg)"
-            
+
             var card = document.createElement("div");
             card.className = "row card";
-            card.style.transform = transform;
-            card.style.webkitTransform = webkitTransform;
+            card.style.transform = "translate(" + xTransform + "px, " + yTransform + "px) rotate(" + rotate + "deg)";
+            card.style.webkitTransform = "translate(" + xTransform + "px, " + yTransform + "px) rotate(" + rotate + "deg)";
             card.style.zIndex = 50 - zOffset;
             
             var cardFlipper = document.createElement("div");
