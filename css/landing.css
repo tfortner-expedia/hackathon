@@ -17,3 +17,31 @@ h1 {
 h5, h6 {
 	color: #FFF;
 }
+#enter-destination-options {
+    z-index: 2;
+    background: rgba(255, 255, 255, 0.93);
+    color: #000;
+    position: absolute;
+    margin-top: 36px;
+    margin-left: 16px;
+    width: 88.9%;
+    display: none;
+}
+#enter-destination-options ul {
+    list-style: none;
+    margin: 0;
+    padding: .5rem;
+}
+#enter-destination-options li {
+    font-size: .8rem;
+    line-height: 1.5rem;
+    padding: 0 .5rem;
+}
+#enter-destination-options li:hover {
+	background-color: #2ba6cb;
+	color: #FFF;
+}
+#enter-destination-options li:focus {
+	background-color: #2285a2;
+    color: #FFF;
+}
