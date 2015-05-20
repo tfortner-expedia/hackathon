@@ -16,7 +16,7 @@
             return Math.floor(Math.random() * (max - min)) + min;
         }
         
-        function loadImageAttachCss(imageUrl, hotelName, starRating, formattedPrice) {
+        function loadImageAttachCss(imageUrl, hotelName, starRating, formattedPrice, zOffset) {
             // start preloading
             var image = document.createElement('img');
             image.src = imageUrl;
@@ -32,17 +32,34 @@
             card.className = "row card";
             card.style.transform = transform;
             card.style.webkitTransform = webkitTransform;
+            card.style.zIndex = 50 - zOffset;
+            
+            var cardFlipper = document.createElement("div");
+            cardFlipper.className = "flipper";
+            card.appendChild(cardFlipper);
 
+            var cardFront = document.createElement("div");
+            cardFront.className = "cardFront";
+            cardFlipper.appendChild(cardFront);
+            
+            var cardBack = document.createElement("div");
+            cardBack.className = "cardBack";
+            cardBack.style.backgroundColor = "white";
+            cardBack.innerHTML = "This is the super cool back of card."
+            cardFlipper.appendChild(cardBack);
 
             var infoButton = document.createElement("div");
             infoButton.className = "large-12 columns";
             infoButton.innerHTML = '<div class="fi-background"><i class="fi-info"></i></div>';
-            card.appendChild(infoButton);
+            infoButton.onclick = function () {
+                card.className = card.className + " flipped";
+            }
+            cardFront.appendChild(infoButton);
             
             // wrap the card for protection from the image.
             var outerCardCasing = document.createElement("div");
             outerCardCasing.className = "large-12 columns";
-            card.appendChild(outerCardCasing);
+            cardFront.appendChild(outerCardCasing);
             
             outerCardCasing.appendChild(image);
 
@@ -112,7 +129,7 @@
       
           for (var i = 0; i < hotels.length; i++) {
               document.body.appendChild(
-                  loadImageAttachCss(hotels[i].imageUrl, hotels[i].name, hotels[i].starRating, hotels[i].price));    
+                  loadImageAttachCss(hotels[i].imageUrl, hotels[i].name, hotels[i].starRating, hotels[i].price, i));    
           }
           
       </script>
