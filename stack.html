@@ -8,93 +8,107 @@
     <link rel="stylesheet" href="css/card-front.css" />
     <link rel="stylesheet" href="css/rotate.css" />
     <script src="js/vendor/modernizr.js"></script>
-  </head>
-  <body>
+    <script>
+        var loadingImage = document.createElement('img');
+        loadingImage.src = "img/loading color.gif";
     
-    <div class="row rotatedA card">
-      <div class="large-12 columns">
-	        <img src="http://images.travelnow.com/hotels/4000000/3120000/3113100/3113039/3113039_31_z.jpg">
-	       
-	       
-            <div class="row hotel-highlights"> 
-                <div class="small-9 columns">
-                    <h4>Park Plaza Westminster Bridge London <span><i class="fi-star"></i><i class="fi-star"></i><i class="fi-star"></i></span></h4>
-                </div>
+        function getRandomInt(min, max) {
+            return Math.floor(Math.random() * (max - min)) + min;
+        }
+        
+        function loadImageAttachCss(imageUrl, hotelName, starRating, formattedPrice) {
+            // start preloading
+            var image = document.createElement('img');
+            image.src = imageUrl;
             
-                <div class="small-3 columns">
-                    <i class="fi-burst-sale"></i> <span>$123,456</span>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    <div class="row rotatedB card">
-      <div class="large-12 columns">
-	        <img src="http://images.travelnow.com/hotels/4000000/3120000/3113100/3113039/3113039_31_z.jpg">
-	       
-	       
-            <div class="row hotel-highlights"> 
-                <div class="small-9 columns">
-                    <h4>Park Plaza Westminster Bridge London <span><i class="fi-star"></i><i class="fi-star"></i><i class="fi-star"></i></span></h4>
-                </div>
+            // transform math
+            var xTransform = getRandomInt(-50, 50);
+            var yTransform = getRandomInt(-50, 50);
+            var rotate = getRandomInt(-10, 10);
+            var webkitTransform = "translate(" + xTransform + "px, " + yTransform + "px) rotate(" + rotate + "deg)"
+            var transform = "translate(" + xTransform + "px, " + yTransform + "px) rotate(" + rotate + "deg)"
             
-                <div class="small-3 columns">
-                    <i class="fi-burst-sale"></i> <span>$123,456</span>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    <div class="row rotatedC card">
-      <div class="large-12 columns">
-	        <img src="http://images.travelnow.com/hotels/4000000/3120000/3113100/3113039/3113039_31_z.jpg">
-	       
-	       
-            <div class="row hotel-highlights"> 
-                <div class="small-9 columns">
-                    <h4>Park Plaza Westminster Bridge London <span><i class="fi-star"></i><i class="fi-star"></i><i class="fi-star"></i></span></h4>
-                </div>
+            var card = document.createElement("div");
+            card.className = "row card";
+            card.style.transform = transform;
+            card.style.webkitTransform = webkitTransform;
             
-                <div class="small-3 columns">
-                    <i class="fi-burst-sale"></i> <span>$123,456</span>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    <div class="row rotatedD card">
-      <div class="large-12 columns">
-	        <img src="http://images.travelnow.com/hotels/4000000/3120000/3113100/3113039/3113039_31_z.jpg">
-	       
-	       
-            <div class="row hotel-highlights"> 
-                <div class="small-9 columns">
-                    <h4>Park Plaza Westminster Bridge London <span><i class="fi-star"></i><i class="fi-star"></i><i class="fi-star"></i></span></h4>
-                </div>
+            // wrap the card for protection from the image.
+            var outerCardCasing = document.createElement("div");
+            outerCardCasing.className = "large-12 columns";
+            card.appendChild(outerCardCasing);
             
-                <div class="small-3 columns">
-                    <i class="fi-burst-sale"></i> <span>$123,456</span>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    <div class="row rotatedE card">
-      <div class="large-12 columns">
-	        <img src="http://images.travelnow.com/hotels/4000000/3120000/3113100/3113039/3113039_31_z.jpg">
-	       
-	       
-            <div class="row hotel-highlights"> 
-                <div class="small-9 columns">
-                    <h4>Park Plaza Westminster Bridge London <span><i class="fi-star"></i><i class="fi-star"></i><i class="fi-star"></i></span></h4>
-                </div>
-            
-                <div class="small-3 columns">
-                    <i class="fi-burst-sale"></i> <span>$123,456</span>
-                </div>
-            </div>
-        </div>
-    </div>
+            outerCardCasing.appendChild(image);
 
+            var hotelHighlights = document.createElement("div");
+            hotelHighlights.className = "row hotel-highlights";
+            outerCardCasing.appendChild(hotelHighlights);
+            
+            var hotelNameHolder = document.createElement("div");
+            hotelNameHolder.className = "small-9 columns";
+            hotelHighlights.appendChild(hotelNameHolder);
+            
+            var hotelNameBlock = document.createElement("h4");
+            var stars = document.createElement("span");
+            for (var i = 0; i < starRating; i++) {
+                var star = document.createElement("i");
+                star.className = "fi-star";
+                stars.appendChild(star);
+            }
+            
+            hotelNameBlock.innerHTML = hotelName;
+            hotelNameBlock.appendChild(stars);
+            hotelNameHolder.appendChild(hotelNameBlock);       
+
+            var hotelPriceHolder = document.createElement("div");
+            hotelPriceHolder.className = "small-3 columns";
+            hotelPriceHolder.innerHTML = '<i class="fi-burst-sale"></i> <span>' + + '</span>'
+            hotelHighlights.appendChild(hotelPriceHolder)
+            
+            return card;
+        }
+    </script>
+  </head>
+  <body>    
+      <script>
+          var hotels = [
+              {
+                  "name": "Park Plaza Westminster Bridge London",
+                  "starRating": 2,
+                  "imageUrl": "http://images.travelnow.com/hotels/4000000/3120000/3113100/3113039/3113039_31_z.jpg",
+                  "price": "$123,456"
+              },
+              {
+                  "name": "Park Plaza Westminster Bridge London",
+                  "starRating": 2,
+                  "imageUrl": "http://images.travelnow.com/hotels/4000000/3120000/3113100/3113039/3113039_31_z.jpg",
+                  "price": "$123,456"
+              },
+              {
+                  "name": "Park Plaza Westminster Bridge London",
+                  "starRating": 2,
+                  "imageUrl": "http://images.travelnow.com/hotels/4000000/3120000/3113100/3113039/3113039_31_z.jpg",
+                  "price": "$123,456"
+              },
+              {
+                  "name": "Park Plaza Westminster Bridge London",
+                  "starRating": 2,
+                  "imageUrl": "http://images.travelnow.com/hotels/4000000/3120000/3113100/3113039/3113039_31_z.jpg",
+                  "price": "$123,456"
+              },
+              {
+                  "name": "Park Plaza Westminster Bridge London",
+                  "starRating": 2,
+                  "imageUrl": "http://images.travelnow.com/hotels/4000000/3120000/3113100/3113039/3113039_31_z.jpg",
+                  "price": "$123,456"
+              }
+          ]
+      
+          for (var i = 0; i < hotels.length; i++) {
+              document.body.appendChild(
+                  loadImageAttachCss(hotels[i].imageUrl, hotels[i].name, hotels[i].starRating, hotels[i].price));    
+          }
+          
+      </script>
   </body>
 </html>
