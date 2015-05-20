@@ -23,7 +23,12 @@
             // transform math
             var xTransform = getRandomInt(-50, 50);
             var yTransform = getRandomInt(-50, 50);
-            var rotate = getRandomInt(-10, 10);
+            var rotate = 0;
+            if (zOffset == 0) {
+                rotate = getRandomInt(-2, 2);
+            } else {
+                rotate = getRandomInt(-10, 10);
+            }
 
             var card = document.createElement("div");
             card.className = "row card";
