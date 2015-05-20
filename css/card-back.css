@@ -1,6 +1,12 @@
 .row {
 	background: #FFF;
 }
+h3 {
+	margin-top: 0;
+}
+.panel h3 {
+	margin-top: -10px !important;
+}
 .thumbnails img {
 	margin: 3px 0;
 }
@@ -16,8 +22,13 @@
 .more-photos a {
 	width: 100%;
 	position: absolute;
-	top: 70%;
-	left: 0;
+	top: 35%;
+	left: .5rem;
+}
+.fi-camera {
+	font-size: 18px;
+	position: relative;
+	top: 2px;
 }
 .map-container {
 	min-height: 90px;
@@ -28,10 +39,51 @@
 }
 .map-container p {
 	font-size: .75rem;
+	line-height: 1.4rem;
 	border: 1px solid #c5e8f3;
 	border-top: 0;
     background: #f2fafc;
 	text-align: center;
 	vertical-align: baseline;
 	margin: 0;
+}
+
+table {
+  margin: 2rem 0 1.25rem 0;
+  width: 100%;
+}
+table tr td {
+	 vertical-align: top;
+}
+table tr th {
+	font-weight: normal !important;
+	font-size: .75rem !important;
+}
+table tr th.book-col {
+	width: 10%;
+}
+table tr th.price-col {
+	width: 70%;
+}
+table tr th.room-type-col {
+	width: 25%;
+}
+table ul li {
+	font-size: .25rem;
+}
+
+table td.hotel-additional-info {
+	width: 20%;
+}
+table td.price {
+	text-align: right;
+}
+table td.price span {
+	font-size: 1.5rem;
+}
+table td.price strike {
+	color: #aaa;
+}
+table td.book-btn {
+	text-align: center;
 }

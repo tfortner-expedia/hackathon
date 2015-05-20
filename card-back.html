@@ -1,31 +1,94 @@
-<!doctype html>
+<!DOCTYPE html>
 <html class="no-js" lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cards Against Hotels</title>
-    <link rel="stylesheet" href="css/main.css" />
-    <link rel="stylesheet" href="css/card-back.css" />
-    <script src="js/vendor/modernizr.js"></script>
-  </head>
-  <body>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <title>Cards Against Hotels</title>
+    <link rel="stylesheet" href="css/main.css" type="text/css">
+    <link rel="stylesheet" href="css/card-back.css" type="text/css">
+    <script src="js/vendor/modernizr.js" type="text/javascript">
+</script>
+</head>
+
+<body>
     <div class="row">
         <div class="large-12 columns">
             <h2>St. Pancras Renaissance London Hotel</h2>
         </div>
     </div>
-	       
+
     <div class="row">
         <div class="small-6 columns thumbnails">
-          <img src="http://images.travelnow.com/hotels/4000000/3910000/3907800/3907784/3907784_148_n.jpg"> <img src="http://images.travelnow.com/hotels/4000000/3910000/3907800/3907784/3907784_51_n.jpg"> <img src="http://images.travelnow.com/hotels/4000000/3910000/3907800/3907784/3907784_107_n.jpg"> <img src="http://images.travelnow.com/hotels/4000000/3910000/3907800/3907784/3907784_148_n.jpg"> <p class="more-photos"><a href="">see more</a></p>
+            <img src="http://images.travelnow.com/hotels/4000000/3910000/3907800/3907784/3907784_148_n.jpg"> <img src="http://images.travelnow.com/hotels/4000000/3910000/3907800/3907784/3907784_51_n.jpg"> <img src="http://images.travelnow.com/hotels/4000000/3910000/3907800/3907784/3907784_107_n.jpg"> <img src="http://images.travelnow.com/hotels/4000000/3910000/3907800/3907784/3907784_135_n.jpg">
+
+            <p class="more-photos"><a href=""><i class="fi-camera size-18"></i> see more</a></p>
         </div>
+
         <div class="small-6 columns map-container">
             <div class="map"><img src="img/map_stpancras.png"></div>
             <p>Euston Road, London, NW1 2AR, GB</p>
         </div>
     </div>
     
+    
+    
+    <div class="row">
+        <div class="large-12 columns">
+            <table>
+                <thead>
+                    <tr>
+                        <th class="room-type-col">Room type</th>
+                        <th colspan="2">Price</th>
+                        <th class="book-col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <h6>Barlow Room</h6>
+                            <img src="http://images.travelnow.com/hotels/4000000/3910000/3907800/3907784/3907784_165_n.jpg">
+                            
+                            <!--
+                            <h6><small>Bed choices</small></h6>
+                            <ul>
+                                <li>King Bed</li>
+                                <li>Queen Bed</li>
+                            </ul>
+                            
+                            <h6><small>Extra beds available</small></h6>
+                            <ul>
+                                <li>Rollaway bed</li>
+                                <li>Crib</li>
+                            </ul>
+                            -->
+                            
+                            <p><a href="">Show room information</a></p>
+                        </td>
+                        <td class="hotel-additional-info">Non-refundable</td>
+                        <td class="price">
+                            <strike>$520</strike> <span>$426</span><br>
+                            nightly price
+                            
+                        </td>
+                        <td class="book-btn"><button class="tiny">Book</button></td>
+                    </tr>
+                    
+                    <tr>
+                        <td>King Bed</td>
+                        <td></td>
+                        <td></td>
+                        <td class="book-btn"><button class="tiny">Book</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    
+    
+    
+
     <div class="row">
         <div class="large-12 columns">
             <h4>Hotel Information</h4>
@@ -33,42 +96,40 @@
     </div>
 
     <div class="row">
-          <div class="large-6 columns">
+        <div class="large-6 columns">
             <div class="callout panel">
                 <h3><small>Rooms</small></h3>
-              <p>Number of rooms information goes here</p>
+                <p>Number of rooms information goes here</p>
             </div>
-          </div>
-          <div class="large-6 columns">
+        </div>
+
+        <div class="large-6 columns">
             <div class="callout panel">
                 <h3><small>Dining</small></h3>
-              <p>dining at the hotel information goes here</p>
+                <p>dining at the hotel information goes here</p>
             </div>
-          </div>
         </div>
-        
-         <div class="row">
-            <div class="large-12 columns">
-                <h4>The details</h4>
-            </div>
+    </div>
+
+    <div class="row">
+        <div class="large-12 columns">
+            <h4>The details</h4>
+        </div>
+    </div>
+
+    <div class="row"><!-- THIS SHOULD EXPAND AND COLLPASE ON CLICK OF The details-->
+        <div class="medium-6 columns">
+            <h3><small>Policies</small></h3>
+            <p>Policy information</p>
         </div>
 
-        <div class="row"> <!-- THIS SHOULD EXPAND AND COLLPASE ON CLICK OF The details-->
-            <div class="medium-6 columns">
-                <h3><small>Policies</small></h3>
-                <p>Policy information</p>
-            </div>
-      
-            <div class="medium-6 columns">
-                <h3><small>Mandatory fees</small></h3>
-                <p>fees</p>
-                <h3><small>Optional extras</small></h3>
-                <p>fees</p>
-            </div>
-        </div>
-    
-    
-    
+        <div class="medium-6 columns">
+            <h3><small>Mandatory fees</small></h3>
+            <p>fees</p>
 
-  </body>
+            <h3><small>Optional extras</small></h3>
+            <p>fees</p>
+        </div>
+    </div>
+</body>
 </html>
