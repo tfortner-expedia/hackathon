@@ -8,6 +8,55 @@
   
   transition: 0.6s;
   -webkit-transition: 0.6s;
+  
+  -moz-animation-duration: 3s;
+  -webkit-animation-duration: 3s;
+  -moz-animation-name: slidein;
+  -webkit-animation-name: slidein;
+}
+
+.swiped {
+  margin-left:100%;
+  -moz-animation-duration: 3s;
+  -webkit-animation-duration: 3s;
+  -moz-animation-name: slideout;
+  -webkit-animation-name: slideout;
+}
+
+@-moz-keyframes slidein {
+  from {
+    margin-left:-100%;
+  }
+  to {
+    margin-left:0%;
+  }
+}
+
+@-webkit-keyframes slidein {
+  from {
+    margin-left:-100%;
+  }
+  to {
+    margin-left:0%;
+  }
+}
+
+@-moz-keyframes slideout {
+  from {
+    margin-left:0%;
+  }
+  to {
+    margin-left:100%;
+  }
+}
+
+@-webkit-keyframes slideout {
+  from {
+    margin-left:0%; 
+  }
+  to {
+    margin-left:100%;
+  }
 }
 
 .columns {

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Foundation | Welcome</title>
+    <title>Stacks | Cards Against Hotels</title>
     <link rel="stylesheet" href="css/main.css" />
     <link rel="stylesheet" href="css/card-front.css" />
     <link rel="stylesheet" href="css/rotate.css" />
@@ -19,7 +19,6 @@
         function loadImageAttachCss(imageUrl, hotelName, starRating, formattedPrice, zOffset) {
             // start preloading
             var image = document.createElement('img');
-            image.src = imageUrl;
             
             // transform math
             var xTransform = getRandomInt(-50, 50);
@@ -36,15 +35,33 @@
             cardFlipper.className = "flipper";
             card.appendChild(cardFlipper);
 
-            var cardFront = document.createElement("div");
-            cardFront.className = "cardFront";
-            cardFlipper.appendChild(cardFront);
+            cardFlipper.appendChild(makeCardFront(image, hotelName, starRating, formattedPrice, card)); 
+            cardFlipper.appendChild(makeCardBack());
+
+            image.onclick = function() {
+                card.className = card.className + " swiped";
+            };
+
+            image.onload = function() {
+                window.setTimeout(function() {document.body.appendChild(card);}, getRandomInt(0, 600))    
+            };
+            image.src = imageUrl;
             
+            return card;
+        }
+        
+        function makeCardBack() {
             var cardBack = document.createElement("div");
             cardBack.className = "cardBack";
             cardBack.style.backgroundColor = "white";
-            cardBack.innerHTML = "This is the super cool back of card."
-            cardFlipper.appendChild(cardBack);
+            cardBack.innerHTML = "This is the super cool back of card.";
+            
+            return cardBack;
+        }
+        
+        function makeCardFront(image, hotelName, starRating, formattedPrice, card) {
+            var cardFront = document.createElement("div");
+            cardFront.className = "cardFront";
 
             var infoButton = document.createElement("div");
             infoButton.className = "large-12 columns";
@@ -84,9 +101,9 @@
             var hotelPriceHolder = document.createElement("div");
             hotelPriceHolder.className = "small-3 columns";
             hotelPriceHolder.innerHTML = '<i class="fi-burst-sale"></i> <span>' + formattedPrice + '</span>'
-            hotelHighlights.appendChild(hotelPriceHolder)
-            
-            return card;
+            hotelHighlights.appendChild(hotelPriceHolder);
+
+            return cardFront;
         }
     </script>
   </head>
@@ -126,8 +143,7 @@
           ]
       
           for (var i = 0; i < hotels.length; i++) {
-              document.body.appendChild(
-                  loadImageAttachCss(hotels[i].imageUrl, hotels[i].name, hotels[i].starRating, hotels[i].price, i));    
+              loadImageAttachCss(hotels[i].imageUrl, hotels[i].name, hotels[i].starRating, hotels[i].price, i);    
           }
           
       </script>
