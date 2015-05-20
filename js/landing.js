@@ -106,7 +106,11 @@ $(function() {
     });
 
     $(".search-form button").click(function(e) {
+        e.preventDefault();
         var destination = $enterDestination.val();
-        console.log('destination', destination);
+        if (destination.match(/^london.*/i)) {
+            window.location.href = "stack.html?destination=" + destination;
+        }
+        return false;
     });
 });
