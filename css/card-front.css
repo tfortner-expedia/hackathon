@@ -33,11 +33,12 @@ h4 {
 .fi-info {
 	font-size: 24px;
     color: #222;
-    position: relative;
 }
 .fi-background {
-	position: absolute;
+	position: relative;
+	top: 2rem;
 	float: right;
+	right: .75rem;
     width: 1.5rem;
     height: 1.5rem;
     border-radius: 18px;
