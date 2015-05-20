@@ -32,6 +32,12 @@
             card.className = "row card";
             card.style.transform = transform;
             card.style.webkitTransform = webkitTransform;
+
+
+            var infoButton = document.createElement("div");
+            infoButton.className = "large-12 columns";
+            infoButton.innerHTML = '<div class="fi-background"><i class="fi-info"></i></div>';
+            card.appendChild(infoButton);
             
             // wrap the card for protection from the image.
             var outerCardCasing = document.createElement("div");
@@ -56,7 +62,7 @@
                 stars.appendChild(star);
             }
             
-            hotelNameBlock.innerHTML = " " + hotelName;
+            hotelNameBlock.innerHTML = hotelName + " ";
             hotelNameBlock.appendChild(stars);
             hotelNameHolder.appendChild(hotelNameBlock);       
 
