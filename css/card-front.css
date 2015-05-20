@@ -2,35 +2,36 @@ img {
 	margin: 0;
 	padding: 0;
 	border: 3px solid #FFF;
-	max-width: 50rem;
 }
 h4 {
-	position: absolute;
-	top: 1rem;
 	margin: 0;
-	padding: .5rem 1rem;
-	background-color: #FFF;
-	filter:alpha(opacity=80); /* IE */
-    -moz-opacity:0.8; /* Mozilla */
-    opacity: 0.8; /* CSS3 */
+	float: left;
     max-width: 40rem;
 }
-.price {
-	position: absolute;
-	bottom: 1rem;
-	margin: 0;
+.hotel-highlights {
+	position: relative;
+	bottom: 4.25rem;
+	margin: 0 !important;
 	padding: .5rem 1rem;
 	background-color: #FFF;
 	filter:alpha(opacity=80); /* IE */
     -moz-opacity:0.8; /* Mozilla */
     opacity: 0.8;
+    text-align: right;
 }
-.price span {
-	font-size: 1.25rem;
+.hotel-highlights span {
+	margin-top: 0.2rem;
+	margin-bottom: 0.5rem;
+	font-size: 1.375rem;
 }
+
 .fi-burst-sale { 
 	font-size: 24px;
 }
 .fi-star {
 	font-size: 18px;
+}
+
+.fi-info {
+	
 }
