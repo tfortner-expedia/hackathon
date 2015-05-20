@@ -44,10 +44,6 @@
             var cardBack = makeCardBack();
             cardFlipper.appendChild(cardBack);
 
-            image.onclick = function() {
-                card.className = card.className + " swiped";
-            };
-
             image.onload = function() {
                 cardBack.style.height = image.height + "px";
                 cardBack.style.width = image.width + "px";
@@ -86,6 +82,17 @@
             
             outerCardCasing.appendChild(image);
 
+            // var leftArrow = document.createElement("i");
+//             leftArrow.className = "fi-arrow-left";
+//             cardFront.appendChild(leftArrow);
+//
+            var rightArrow = document.createElement("i");
+            rightArrow.className = "fi-arrow-right";
+            rightArrow.onclick = function() {
+                card.className = card.className + " swiped";
+            }
+            cardFront.appendChild(rightArrow);
+
             var hotelHighlights = document.createElement("div");
             hotelHighlights.className = "row hotel-highlights";
             outerCardCasing.appendChild(hotelHighlights);
@@ -119,6 +126,8 @@
       <h1>Cards Against Hotels</h1>
       <div id="cards">
       </div>
+      
+      
       <script>
           var hotels = [
               {
