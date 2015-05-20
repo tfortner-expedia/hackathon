@@ -6,6 +6,7 @@
 	background: url(../img/Clearwater.jpg) center center;
 	z-index: 1;
 	color: #FFF;
+	min-height: 30em;
 }
 h1 {
 	text-align: center;

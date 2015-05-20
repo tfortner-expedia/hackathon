@@ -25,14 +25,38 @@ app.autocomplete = (function() {
     };
 })();
 
+app.formatDate = function(date) {
+    var day = date.getDate(),
+        month = date.getMonth() + 1,
+        year = date.getFullYear();
+    return [month, day, year].join("/");
+};
+
 app.destinationUrl = "http://www.travelnow.com/templates/367108/destination";
 
 $(function() {
     var $enterDestination = $("#enter-destination"),
         $enterDestinationContainer = $("#enter-destination-options"),
-        $enterDestinationResults = $("#enter-destination-options > ul");
+        $enterDestinationResults = $("#enter-destination-options > ul"),
+        $checkIn = $('.check-in'),
+        $checkOut = $('.check-out'),
+        calendarDefaults = {
+            today: null,
+            clear: null,
+            close: null,
+            format: 'm/d/yyyy'
+        },
+        today = new Date(),
+        twoDaysFromToday = (function() {
+            var temp = new Date();
+            temp.setDate(temp.getDate() + 2);
+            return temp;
+        })();
 
     var resultsUpdater = function(responseData) {
+        if (!responseData.items.length) {
+            return {};
+        }
         var liHtml = "";
         responseData.items.map(function(item) {
             liHtml += '<li>' + item.name + '</li>'
@@ -63,11 +87,30 @@ $(function() {
 
     $enterDestinationResults.on('click', 'li', function(e) {
         $enterDestination.val(e.target.innerText);
+        $enterDestinationContainer.hide();
     });
 
+    $checkIn.val(app.formatDate(today));
+    $checkOut.val(app.formatDate(twoDaysFromToday));
+    $checkIn.click(function() {
+        $checkIn.pickadate($.extend(calendarDefaults, {
+            onSet: function(context) {
+                var checkInDate = new Date(context.select);
+                checkInDate.setDate(checkInDate.getDate() + 2);
+                $checkOut.val(app.formatDate(checkInDate));
+            }
+        }));
+    });
+    $checkOut.click(function() {
+        $checkOut.pickadate(calendarDefaults);  
+    });
 
     $(".search-form button").click(function(e) {
+        e.preventDefault();
         var destination = $enterDestination.val();
-        console.log('destination', destination);
+        if (destination.match(/^london.*/i)) {
+            window.location.href = "stack.html?destination=" + destination;
+        }
+        return false;
     });
 });
