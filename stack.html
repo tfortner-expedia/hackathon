@@ -56,13 +56,13 @@
                 stars.appendChild(star);
             }
             
-            hotelNameBlock.innerHTML = hotelName;
+            hotelNameBlock.innerHTML = " " + hotelName;
             hotelNameBlock.appendChild(stars);
             hotelNameHolder.appendChild(hotelNameBlock);       
 
             var hotelPriceHolder = document.createElement("div");
             hotelPriceHolder.className = "small-3 columns";
-            hotelPriceHolder.innerHTML = '<i class="fi-burst-sale"></i> <span>' + + '</span>'
+            hotelPriceHolder.innerHTML = '<i class="fi-burst-sale"></i> <span>' + formattedPrice + '</span>'
             hotelHighlights.appendChild(hotelPriceHolder)
             
             return card;
