@@ -22,6 +22,28 @@
 				    <div class="large-12 columns">
 				      <input type="text" name="enter-destination" maxlength="" id="enter-destination" autofocus>
 				    </div>
+                    <style>
+                        #enter-destination-options {
+                            z-index: 2;
+                            background: rgba(255, 255, 255, 0.93);
+                            color: #000;
+                            position: absolute;
+                            margin-top: 36px;
+                            margin-left: 16px;
+                            width: 89%;
+                            display: none;
+                        }
+                        #enter-destination-options ul {
+                            list-style: none;
+                        }
+                        #enter-destination-options li {
+                            margin-top: .3em;
+                        }
+                    </style>
+                    <div id="enter-destination-options">
+                        <ul>
+                        </ul>
+                    </div>
 				  </div>
 				  
 				  <div class="row">
@@ -125,5 +147,7 @@
 <script type="text/javascript">
   $(document).foundation();
 </script>
+<script src="js/vendor/jquery.ba-throttle-debounce.min.js"></script>
+<script src="js/landing.js"></script>
 </body>
 </html>
