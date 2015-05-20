@@ -41,7 +41,7 @@
             card.appendChild(cardFlipper);
 
             cardFlipper.appendChild(makeCardFront(image, hotelName, starRating, formattedPrice, card)); 
-            var cardBack = makeCardBack();
+            var cardBack = makeCardBack(card);
             cardFlipper.appendChild(cardBack);
 
             image.onload = function() {
@@ -54,12 +54,14 @@
             return card;
         }
         
-        function makeCardBack() {
+        function makeCardBack(card) {
             var cardBack = document.createElement("div");
             cardBack.className = "cardBack";
             cardBack.style.backgroundColor = "white";
             cardBack.innerHTML = "This is the super cool back of card.";
-            
+            cardBack.onclick = function() {
+                card.classList.remove("flipped");
+            };
             return cardBack;
         }
         
@@ -71,7 +73,7 @@
             infoButton.className = "large-12 columns";
             infoButton.innerHTML = '<div class="fi-background"><i class="fi-info"></i></div>';
             infoButton.onclick = function () {
-                card.className = card.className + " flipped";
+                card.classList.add("flipped");
             }
             cardFront.appendChild(infoButton);
             
@@ -89,7 +91,7 @@
             var rightArrow = document.createElement("i");
             rightArrow.className = "fi-arrow-right";
             rightArrow.onclick = function() {
-                card.className = card.className + " swiped";
+                card.classList.add("swiped");
             }
             cardFront.appendChild(rightArrow);
 
