@@ -1,6 +1,13 @@
 .row {
 	background: #FFF;
 }
+.fixed h2 {
+	background: #FFF;
+	padding: .5rem 1rem;
+}
+.row.first {
+	margin-top: 4.2rem;
+}
 h3 {
 	margin-top: 0;
 }
