@@ -47,7 +47,7 @@
                     <tr>
                         <td>
                             <h6>Barlow Room</h6>
-                            <p class="show-room-container"><a href="">Show room information</a></p>
+                            <p class="show-room-container"><span class="room-info-link" id="room-1-info">Show room information</span></p>
                         </td>
                         <td><img src="http://images.travelnow.com/hotels/4000000/3910000/3907800/3907784/3907784_165_n.jpg"></td>
                         <td class="hotel-additional-info sale"><i class="fi-burst-sale"></i> 10% off</td>
@@ -59,7 +59,7 @@
                         <td class="book-btn"><button class="tiny">Book</button></td>
                     </tr>
                     
-                    <tr class="collapsable collapsed">
+                    <tr class="collapsable collapsed" id="room-1-details">
                         <td colspan="5">
                             
                             <div class="room-description">344-sq-foot (32-sq-meter) room with city views<br><br><b>Entertainment</b> - WiFi, 32-inch LCD TV with digital channels<br><b>Food &amp; Drink</b> - Coffee/tea maker<br><b>Sleep</b> - Pillowtop bed with premium bedding and a down duvet <br><b>Bathroom</b> - Private bathroom with a shower/tub combination, bathrobes, and a hair dryer</div>
@@ -77,7 +77,7 @@
                     <tr>
                         <td>
                             <h6>Junior Suite</h6>
-                            <p class="show-room-container"><a href="">Show room information</a></p>
+                            <p class="show-room-container"><span class="room-info-link" id="room-2-info">Show room information</span></p>
                         </td>
                         <td><img src="http://images.travelnow.com/hotels/4000000/3910000/3907800/3907784/3907784_165_n.jpg"></td>
                         <td class="hotel-additional-info">Non-refundable</td>
@@ -87,6 +87,21 @@
                             
                         </td>
                         <td class="book-btn"><button class="tiny">Book</button></td>
+                    </tr>
+                    
+                    <tr class="collapsable collapsed" id="room-2-details">
+                        <td colspan="5">
+                            
+                            <div class="room-description">344-sq-foot (32-sq-meter) room with city views<br><br><b>Entertainment</b> - WiFi, 32-inch LCD TV with digital channels<br><b>Food &amp; Drink</b> - Coffee/tea maker<br><b>Sleep</b> - Pillowtop bed with premium bedding and a down duvet <br><b>Bathroom</b> - Private bathroom with a shower/tub combination, bathrobes, and a hair dryer</div>
+                            
+                            <div class="room-options">
+                                <div class="bed-choices"><p>Bed Choices</p><ul class="bulleted"><li>King Bed</li><li class="last">Queen Bed</li></ul></div>
+                                
+                                <div class="extra-bed-choices"><p>Extra beds available</p><ul class="bulleted"><li>Rollaway bed</li><li class="last">Crib</li></ul></div>
+    
+                                <div class="room-details"><p>Room Details</p><ul class="bulleted"><li>Air conditioning</li><li>Bathrobes</li><li>Climate control</li><li>Coffee/tea maker</li><li>Cribs/infant beds available</li><li>Daily housekeeping</li><li>Digital TV service</li><li>Down comforter</li><li>Egyptian-cotton sheets</li><li>Free newspaper</li><li>Hair dryer</li><li>In-room safe</li><li>Iron/ironing board</li><li>LCD TV</li><li>Pay movies</li><li>Phone</li><li>Pillowtop mattress</li><li>Premium bedding</li><li>Private bathroom</li><li>Rollaway/extra beds available</li><li>Room service (24 hours)</li><li>Shower/tub combination</li><li class="last">Turndown service</li></ul></div>
+                            </div>
+                        </td>
                     </tr>
 
                 </tbody>
@@ -176,6 +191,30 @@
             }
         }
         document.getElementById("details-label").onclick = function() { toggleCollapse('details-details'); };
+        
+        document.getElementById("room-1-info").onclick = function() { 
+            var target = document.getElementById('room-1-details');
+            
+            if (target.classList.contains("collapsed")) {
+                document.getElementById("room-1-info").innerHTML = "Hide room information";
+                target.classList.remove("collapsed");
+            } else {
+                document.getElementById("room-1-info").innerHTML = "Show room information";
+                target.classList.add("collapsed");
+            }
+        };
+        
+        document.getElementById("room-2-info").onclick = function() { 
+            var target = document.getElementById('room-2-details');
+            
+            if (target.classList.contains("collapsed")) {
+                document.getElementById("room-2-info").innerHTML = "Hide room information";
+                target.classList.remove("collapsed");
+            } else {
+                document.getElementById("room-2-info").innerHTML = "Show room information";
+                target.classList.add("collapsed");
+            }
+        };
     </script>
 </body>
 </html>

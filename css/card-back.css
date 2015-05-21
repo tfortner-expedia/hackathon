@@ -173,6 +173,7 @@ ul.bulleted li.last:after {
 }
 
 .collapsed {
+  display: none;
   height: 0px;
   overflow: hidden;
 }
@@ -218,4 +219,19 @@ ul.bulleted li.last:after {
   to {
     height: auto;
   }
+}
+
+#details-label {
+  cursor: pointer;
+}
+
+.room-info-link {
+  color: #2ba6cb;
+  text-decoration: none;
+  line-height: inherit;  
+  cursor: pointer;  
+}
+
+.room-info-link:hover, .room-info-link:focus {
+  color: #258faf;
 }
