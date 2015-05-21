@@ -3,7 +3,8 @@
     border-radius: 5px;
 	overflow: hidden;
 	margin: 50px auto;
-	background: url(../img/Clearwater.jpg) center center;
+	background: url(../img/DomRep.jpg) 50% 50%;
+	background-size: cover;
 	z-index: 1;
 	color: #FFF;
 	min-height: 30em;
@@ -44,4 +45,10 @@ h5, h6 {
 #enter-destination-options li:focus {
 	background-color: #2285a2;
     color: #FFF;
+}
+
+.shadow {
+	-webkit-box-shadow: 5px 5px 10px 3px rgba(0,0,0,0.17);
+	-moz-box-shadow: 5px 5px 10px 3px rgba(0,0,0,0.17);
+	box-shadow: 5px 5px 10px 3px rgba(0,0,0,0.17);
 }
