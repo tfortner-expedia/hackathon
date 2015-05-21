@@ -358,7 +358,7 @@
 
             var hotelPriceHolder = document.createElement("div");
             hotelPriceHolder.className = "small-3 columns";
-            hotelPriceHolder.innerHTML = '<i class="fi-burst-sale"></i> <span>' + formattedPrice + '</span>'
+            hotelPriceHolder.innerHTML = '<span>' + formattedPrice + '</span>'
             hotelHighlights.appendChild(hotelPriceHolder);
 
             return cardFront;
@@ -523,16 +523,16 @@
       <script>
           var hotels = [
               {
-                  "name": "St. Pancras Renaissance London Hotel",
-                  "starRating": 5,
-                  "imageUrl": "img/hotels/3907784_147_z.jpg",
-                  "price": "$286"
+                  "name": "Park Plaza Westminster Bridge London",
+                  "starRating": 4,
+                  "imageUrl": "img/hotels/3113039_31_z.jpg",
+                  "price": "<i class='fi-burst-sale'></i> <strike>$305</strike> $251"
               },
               {
                   "name": "Le Meridien Piccadilly",
                   "starRating": 5,
                   "imageUrl": "img/hotels/21538_134_z.jpg",
-                  "price": "$300"
+                  "price": "$273"
               },
               {
                   "name": "Ventures Hotel",
@@ -541,22 +541,23 @@
                   "price": "$123"
               },
               {
-                  "name": "Draycott Hotel",
-                  "starRating": 2,
-                  "imageUrl": "img/hotels/462335_49_z.jpg",
-                  "price": "$251"
+                  "name": "St. Pancras Renaissance London Hotel",
+                  "starRating": 5,
+                  "imageUrl": "img/hotels/3907784_147_z.jpg",
+                  "price": "$348"
               },
               {
-                  "name": "Park Plaza Westminster Bridge London",
-                  "starRating": 4,
-                  "imageUrl": "img/hotels/3113039_31_z.jpg",
-                  "price": "$200"
+                  "name": "Draycott Hotel",
+                  "starRating": 5,
+                  "imageUrl": "img/hotels/462335_49_z.jpg",
+                  "price": "$408"
               },
+              
               {
                   "name": "Park Plaza Riverbank London",
                   "starRating": 4,
                   "imageUrl": "img/hotels/1183908_107_z.jpg",
-                  "price": "1 Sandwich"
+                  "price": "<i class='fi-burst-sale'></i> 1 Sandwich"
               }
           ]
       
