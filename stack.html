@@ -70,7 +70,7 @@
             cardBack.appendChild(makeNameBlock(hotelName));    
             cardBack.appendChild(makeThumbnailAndMapRow());
             
-            cardBack.appendChild(makeRoomsRow());
+            cardBack.appendChild(makeRoomsRow([]));
             
             return cardBack;
         }
@@ -176,12 +176,12 @@
             var tableBody = document.createElement("tbody");
             roomsTable.appendChild(tableBody);
             
-            for (var i = 0; i < rooms.length; i++) {
-                var roomRow = document.createElement("tr");
-                
-                
-                tableBody.appendChild(roomRow);
-            }
+            // for (var i = 0; i < rooms.length; i++) {
+            //     var roomRow = document.createElement("tr");
+            //
+            //
+            //     tableBody.appendChild(roomRow);
+            // }
             
             
             
