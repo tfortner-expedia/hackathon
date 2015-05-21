@@ -121,7 +121,7 @@ body {
 /* Make the back scroll if there is overflow and start out already flipped */
 .cardBack {
   display: inline-block;
-  overflow: scroll;
+  overflow: hidden;
   transform: rotateY(180deg);
 	-webkit-transform: rotateY(180deg);
 }
