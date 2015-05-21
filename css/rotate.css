@@ -120,10 +120,25 @@ body {
 
 /* Make the back scroll if there is overflow and start out already flipped */
 .cardBack {
+  /*position: relative;*/
   display: inline-block;
   overflow: hidden;
   transform: rotateY(180deg);
 	-webkit-transform: rotateY(180deg);
+}
+
+.fi-close-box {
+  z-index: 5;
+  cursor: pointer;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+}
+
+.fi-arrow-right-box {
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
 }
 
 i.fi-arrow-left, i.fi-arrow-right {
@@ -131,27 +146,22 @@ i.fi-arrow-left, i.fi-arrow-right {
   -moz-opacity:0.8; /* Mozilla */
   opacity: 0.8;
   
+  font-size: 24px;
+  color: #222;
   cursor: pointer;
   display: inline-block;  
-  
-  font-size: 20px;
-  position: absolute;
-  top: 50%;
-  
-  padding: 0px 5px 0px 5px;
-  background-color: white;
 }
 
-.fi-arrow-left {
-  margin-left: 15px;
-  padding: 0px 10px 0px 10px;
+.fi-arrow-left-box {
+  margin-left: 25px;
   left: 0px;
-  border-radius: 0px 5px 5px 0px;
 }
 
-.fi-arrow-right {
-  margin-right: 15px;
-  padding: 0px 10px 0px 10px;
+.fi-arrow-right-box {
+  margin-right: 25px;
   right: 0px;
-  border-radius: 5px 0px 0px 5px;
+}
+
+iframe {
+  border: 3px solid #FFF;
 }

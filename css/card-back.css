@@ -4,6 +4,10 @@
 .fixed h2 {
 	background: #FFF;
 	padding: .5rem 1rem;
+	margin: 0;
+}
+.title-container {
+	padding: 0;
 }
 .row.first {
 	margin-top: 4.2rem;
@@ -28,9 +32,6 @@ ul li {
 ul li.last {
 	margin-top: 1rem;
 }
-
-
-
 span {
 	font-weight: bold;
 }
@@ -123,7 +124,6 @@ p.show-room-container {
 	font-size: .75rem;
 	margin-top: .5rem;
 }
-
 .room-description {
 	box-sizing: border-box;
     padding-right: 2%;
@@ -170,4 +170,56 @@ ul.bulleted li.last:after {
 }
 .sale {
 	color: #f08a24;
+}
+
+.collapsed {
+  height: 0px;
+  overflow: hidden;
+  -moz-animation-duration: 1.5s;
+  -webkit-animation-duration: 1.5s;
+  -moz-animation-name: collapse;
+  -webkit-animation-name: collapse;
+}
+
+@-moz-keyframes collapse {
+  from {
+    height: auto;
+  }
+  to {
+    height: 0px;
+  }
+}
+
+@-webkit-keyframes collapse {
+  from {
+    height: auto;
+  }
+  to {
+    height: 0px;
+  }
+
+.expanded {
+  height: auto;
+  -moz-animation-duration: 1.5s;
+  -webkit-animation-duration: 1.5s;
+  -moz-animation-name: expand;
+  -webkit-animation-name: expand;
+}
+
+@-moz-keyframes expand {
+  from {
+    height: 0px;
+  }
+  to {
+    height: auto;
+  }
+}
+
+@-webkit-keyframes expand {
+  from {
+    height: 0px;
+  }
+  to {
+    height: auto;
+  }
 }
