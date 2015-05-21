@@ -18,7 +18,7 @@ h3 {
 	margin: 3px 0;
 }
 .more-photos {
-	width: 90px;
+	width: 70px;
 	height: 90px;
 	text-align: center;
 	vertical-align: middle;
@@ -29,11 +29,12 @@ h3 {
 .more-photos a {
 	width: 100%;
 	position: absolute;
-	top: 35%;
-	left: .5rem;
+	top: 50%;
+	left: 0;
+	font-size: .5rem;
 }
 .fi-camera {
-	font-size: 18px;
+	font-size: 14px;
 	position: relative;
 	top: 2px;
 }
