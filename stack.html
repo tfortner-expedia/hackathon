@@ -67,11 +67,28 @@
             };
             closeBox.appendChild(closeButton);
             
-            cardBack.appendChild(makeNameBlock(hotelName));    
-            cardBack.appendChild(makeThumbnailAndMapRow());
+            var backFrame = document.createElement("iframe");
+            backFrame.src = "card-back.html";
+            backFrame.width = "100%";
+            backFrame.height = "100%";
+            cardBack.appendChild(backFrame);
             
-            cardBack.appendChild(makeRoomsRow([]));
-            
+            // cardBack.appendChild(makeNameBlock(hotelName));
+            // cardBack.appendChild(makeThumbnailAndMapRow());
+            //
+            // cardBack.appendChild(makeRoomsRow(hotelName, [
+            //     {
+            //         "name": "Barlow Room",
+            //         "thumbnailImageUrl": "http://images.travelnow.com/hotels/4000000/3910000/3907800/3907784/3907784_165_n.jpg",
+            //         "sale": "10% off",
+            //         "price": "$426"
+            //     },
+            //     {
+            //         "name": "Junior Suite",
+            //         "thumbnailImageUrl": "http://images.travelnow.com/hotels/4000000/3910000/3907800/3907784/3907784_165_n.jpg",
+            //         "price": "$575"
+            //     }
+            // ]));
             return cardBack;
         }
         
@@ -137,7 +154,7 @@
 //     </div>
 // </div>
         
-        function makeRoomsRow(rooms) {
+        function makeRoomsRow(hotelName, rooms) {
             var roomsRow = document.createElement("div");
             roomsRow.className = "row";
             
@@ -176,14 +193,33 @@
             var tableBody = document.createElement("tbody");
             roomsTable.appendChild(tableBody);
             
-            // for (var i = 0; i < rooms.length; i++) {
-            //     var roomRow = document.createElement("tr");
-            //
-            //
-            //     tableBody.appendChild(roomRow);
-            // }
-            
-            
+            for (var i = 0; i < rooms.length; i++) {
+                var roomRow = document.createElement("tr");
+
+                var nameBlock = document.createElement("td");
+                roomRow.appendChild(nameBlock);
+                
+                var nameHeader = document.createElement("h6");
+                nameHeader.innerHTML = rooms[i].name;
+                nameBlock.appendChild(nameHeader);
+                
+                var moreRoomInfo = document.createElement("p");
+                moreRoomInfo.innerHTML = "<a href=''>Show room information</a>";
+                nameBlock.appendChild(moreRoomInfo);
+                
+                roomRow.appendChild(nameBlock);
+                
+                //                     <td><img src="http://images.travelnow.com/hotels/4000000/3910000/3907800/3907784/3907784_165_n.jpg"></td>
+                //                     <td class="hotel-additional-info sale"><i class="fi-burst-sale"></i> 10% off</td>
+                //                     <td class="price">
+                //                         <strike>$520</strike> <span>$426</span><br>
+                //                         nightly price
+                //
+                //                     </td>
+                //                     <td class="book-btn"><button class="tiny">Book</button></td>
+                
+                tableBody.appendChild(roomRow);
+            }
             
             return roomsRow;
         }
