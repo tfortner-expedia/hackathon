@@ -59,9 +59,11 @@ table tr th {
 	font-weight: normal !important;
 	font-size: .75rem !important;
 }
-table tr th.book-col {
+table tr th.book-col,
+table tr th.thumb-col {
 	width: 12%;
 }
+
 table tr th.price-col {
 	width: 70%;
 }
@@ -86,4 +88,9 @@ table td.price strike {
 }
 table td.book-btn {
 	text-align: center;
+}
+
+p.show-room-container {
+	font-size: .75rem;
+	margin-top: .5rem;
 }
