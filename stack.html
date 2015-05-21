@@ -62,6 +62,13 @@
             cardBack.onclick = function() {
                 card.classList.remove("flipped");
             };
+            
+            var backFrame = document.createElement("iframe");
+            backFrame.src = "card-back.html";
+            backFrame.width = "100%";
+            backFrame.height = "100%";
+            cardBack.appendChild(backFrame);
+            
             return cardBack;
         }
         
