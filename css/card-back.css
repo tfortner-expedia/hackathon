@@ -14,6 +14,26 @@ h3 {
 .panel h3 {
 	margin-top: -10px !important;
 }
+p,
+ul li {
+	font-size: .8rem;
+}
+ul {
+	margin: 0;
+}
+ul li {
+	line-height: 1.5rem;
+	list-style-type: none;
+}
+ul li.last {
+	margin-top: 1rem;
+}
+
+
+
+span {
+	font-weight: bold;
+}
 .thumbnails img {
 	margin: 3px 0;
 }
@@ -29,9 +49,9 @@ h3 {
 .more-photos a {
 	width: 100%;
 	position: absolute;
-	top: 50%;
-	left: 0;
-	font-size: .5rem;
+	top: 40%;
+	left: .5rem;
+	font-size: .8rem;
 }
 .fi-camera {
 	font-size: 14px;
@@ -90,6 +110,7 @@ table td.price {
 }
 table td.price span {
 	font-size: 1.5rem;
+	font-weight: normal;
 }
 table td.price strike {
 	color: #aaa;
@@ -101,4 +122,52 @@ table td.book-btn {
 p.show-room-container {
 	font-size: .75rem;
 	margin-top: .5rem;
+}
+
+.room-description {
+	box-sizing: border-box;
+    padding-right: 2%;
+    width: 43%;
+    display: inline-block;
+    vertical-align: top;
+    font-size: .7rem;
+}
+.room-options {
+	box-sizing: border-box;
+    width: 56%;
+    display: inline-block;
+    vertical-align: top;
+}
+.room-details p,
+.bed-choices p,
+.extra-bed-choices p {
+	margin-bottom: .2rem;
+}
+
+ul.bulleted {
+	margin-left: 1rem;
+	display: inline-block;
+}
+ul.bulleted li {
+	line-height: 1rem;
+	list-style-type: none;
+	float: left;
+	padding: 0 3px 0 0;
+}
+ul.bulleted li:after {
+	content: ' |';
+}
+ul.bulleted li.last {
+	margin-top: 0;
+	padding: 0;
+}
+ul.bulleted li.last:after {
+	content: ' ';
+	margin-top: 0;
+}
+.fi-burst-sale { 
+	font-size: 24px;
+}
+.sale {
+	color: #f08a24;
 }
