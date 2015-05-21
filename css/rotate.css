@@ -121,18 +121,20 @@ body {
 /* Make the back scroll if there is overflow and start out already flipped */
 .cardBack {
   /*position: relative;*/
+  background-color: white;
+  border: 3px solid #FFF;
   display: inline-block;
-  overflow: hidden;
+  overflow: scroll;
   transform: rotateY(180deg);
 	-webkit-transform: rotateY(180deg);
 }
 
 .fi-close-box {
-  z-index: 5;
+  z-index: 50000;
   cursor: pointer;
   position: absolute;
   top: 0px;
-  right: 0px;
+  left: 0px;
 }
 
 .fi-arrow-right-box {

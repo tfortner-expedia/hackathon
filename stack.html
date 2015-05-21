@@ -6,6 +6,7 @@
     <title>Stacks | Cards Against Hotels</title>
     <link rel="stylesheet" href="css/main.css" />
     <link rel="stylesheet" href="css/card-front.css" />
+    <link rel="stylesheet" href="css/card-back.css">
     <link rel="stylesheet" href="css/rotate.css" />
     <script src="js/vendor/modernizr.js"></script>
     <script>
@@ -38,7 +39,7 @@
             card.appendChild(cardFlipper);
 
             cardFlipper.appendChild(makeCardFront(image, hotelName, starRating, formattedPrice, card)); 
-            var cardBack = makeCardBack(card);
+            var cardBack = makeCardBack(hotelName, card);
             cardFlipper.appendChild(cardBack);
 
             image.onload = function() {
@@ -51,7 +52,7 @@
             return card;
         }
         
-        function makeCardBack(card) {
+        function makeCardBack(hotelName, card) {
             var cardBack = document.createElement("div");
             cardBack.className = "cardBack";
             
@@ -66,13 +67,203 @@
             };
             closeBox.appendChild(closeButton);
             
-            var backFrame = document.createElement("iframe");
-            backFrame.src = "card-back.html";
-            backFrame.width = "100%";
-            backFrame.height = "100%";
-            cardBack.appendChild(backFrame);
+            cardBack.appendChild(makeNameBlock(hotelName));    
+            cardBack.appendChild(makeThumbnailAndMapRow());
+            
+            cardBack.appendChild(makeRoomsRow());
             
             return cardBack;
+        }
+        
+// <div class="row">
+//     <div class="large-12 columns">
+//         <table>
+//             <thead>
+//                 <tr>
+//                     <th class="room-type-col">Room type</th>
+//                     <th class="thumb-col"></th>
+//                     <th colspan="2">Price</th>
+//                     <th class="book-col"></th>
+//                 </tr>
+//             </thead>
+//             <tbody>
+//                 <tr>
+//                     <td>
+//                         <h6>Barlow Room</h6>
+//                         <p class="show-room-container"><a href="">Show room information</a></p>
+//                     </td>
+//                     <td><img src="http://images.travelnow.com/hotels/4000000/3910000/3907800/3907784/3907784_165_n.jpg"></td>
+//                     <td class="hotel-additional-info sale"><i class="fi-burst-sale"></i> 10% off</td>
+//                     <td class="price">
+//                         <strike>$520</strike> <span>$426</span><br>
+//                         nightly price
+//
+//                     </td>
+//                     <td class="book-btn"><button class="tiny">Book</button></td>
+//                 </tr>
+//
+//                 <tr class="collapsable collapsed">
+//                     <td colspan="5">
+//
+//                         <div class="room-description">344-sq-foot (32-sq-meter) room with city views<br><br><b>Entertainment</b> - WiFi, 32-inch LCD TV with digital channels<br><b>Food &amp; Drink</b> - Coffee/tea maker<br><b>Sleep</b> - Pillowtop bed with premium bedding and a down duvet <br><b>Bathroom</b> - Private bathroom with a shower/tub combination, bathrobes, and a hair dryer</div>
+//
+//                         <div class="room-options">
+//                             <div class="bed-choices"><p>Bed Choices</p><ul class="bulleted"><li>King Bed</li><li class="last">Queen Bed</li></ul></div>
+//
+//                             <div class="extra-bed-choices"><p>Extra beds available</p><ul class="bulleted"><li>Rollaway bed</li><li class="last">Crib</li></ul></div>
+//
+//                             <div class="room-details"><p>Room Details</p><ul class="bulleted"><li>Air conditioning</li><li>Bathrobes</li><li>Climate control</li><li>Coffee/tea maker</li><li>Cribs/infant beds available</li><li>Daily housekeeping</li><li>Digital TV service</li><li>Down comforter</li><li>Egyptian-cotton sheets</li><li>Free newspaper</li><li>Hair dryer</li><li>In-room safe</li><li>Iron/ironing board</li><li>LCD TV</li><li>Pay movies</li><li>Phone</li><li>Pillowtop mattress</li><li>Premium bedding</li><li>Private bathroom</li><li>Rollaway/extra beds available</li><li>Room service (24 hours)</li><li>Shower/tub combination</li><li class="last">Turndown service</li></ul></div>
+//                         </div>
+//                     </td>
+//                 </tr>
+//
+//                 <tr>
+//                     <td>
+//                         <h6>Junior Suite</h6>
+//                         <p class="show-room-container"><a href="">Show room information</a></p>
+//                     </td>
+//                     <td><img src="http://images.travelnow.com/hotels/4000000/3910000/3907800/3907784/3907784_165_n.jpg"></td>
+//                     <td class="hotel-additional-info">Non-refundable</td>
+//                     <td class="price">
+//                         <span>$575</span><br>
+//                         nightly price
+//
+//                     </td>
+//                     <td class="book-btn"><button class="tiny">Book</button></td>
+//                 </tr>
+//
+//             </tbody>
+//         </table>
+//     </div>
+// </div>
+        
+        function makeRoomsRow(rooms) {
+            var roomsRow = document.createElement("div");
+            roomsRow.className = "row";
+            
+            // tables are so awesome, they require a holder.
+            var tableHolder = document.createElement("div");
+            tableHolder.className = "large-12 columns";
+            roomsRow.appendChild(tableHolder);
+            
+            var roomsTable = document.createElement("table");
+            roomsRow.appendChild(roomsTable);
+            
+            var tableHead = document.createElement("thead");
+            roomsTable.appendChild(tableHead);
+            
+            var headerRow = document.createElement("tr");
+            tableHead.appendChild(headerRow);
+            
+            var header = document.createElement("th");
+            header.className = "room-type-col";
+            header.innerHTML = "Room type";
+            headerRow.appendChild(header);
+            
+            header = document.createElement("th");
+            header.className = "thumb-col";
+            headerRow.appendChild(header);
+            
+            header = document.createElement("th");
+            header.colspan = 2;
+            header.innerHTML = "Price";
+            headerRow.appendChild(header);
+            
+            header = document.createElement("th");
+            header.className = "book-col";
+            headerRow.appendChild(header);
+            
+            var tableBody = document.createElement("tbody");
+            roomsTable.appendChild(tableBody);
+            
+            for (var i = 0; i < rooms.length; i++) {
+                var roomRow = document.createElement("tr");
+                
+                
+                tableBody.appendChild(roomRow);
+            }
+            
+            
+            
+            return roomsRow;
+        }
+        
+        function makeThumbnailAndMapRow() {
+            var thumbnailImageUrls = [
+                "http://images.travelnow.com/hotels/4000000/3910000/3907800/3907784/3907784_69_n.jpg",
+                "http://images.travelnow.com/hotels/4000000/3910000/3907800/3907784/3907784_51_n.jpg",
+                "http://images.travelnow.com/hotels/4000000/3910000/3907800/3907784/3907784_107_n.jpg",
+                "http://images.travelnow.com/hotels/4000000/3910000/3907800/3907784/3907784_129_n.jpg"
+            ]
+            
+            var row = document.createElement("div");
+            row.className = "row first";
+            
+            row.appendChild(makeThumbnailsBlock(thumbnailImageUrls));
+            
+            var morePhotosBlock = document.createElement("p");
+            row.appendChild(morePhotosBlock);
+            
+            var morePhotosLink = document.createElement("a");
+            morePhotosBlock.appendChild(morePhotosLink);
+            
+            var morePhotosIcon = document.createElement("i");
+            morePhotosIcon.className = "fi-camera size-18";
+            morePhotosLink.appendChild(morePhotosIcon);
+            
+            var moreSpan = document.createElement("span");
+            moreSpan.innerHTML = "see more";
+            morePhotosLink.appendChild(moreSpan);
+            
+            row.appendChild(makeMapBlock("img/map_stpancras.png", "Euston Road, London, NW1 2AR, GB"))
+            
+            return row;
+        }
+        
+        function makeMapBlock(mapImageUrl, address) {
+            var mapAndAddressContainer = document.createElement("div");
+            mapAndAddressContainer.className = "small-6 columns map-container";
+            
+            var mapContainer = document.createElement("div");
+            mapContainer.className = "map";
+            mapAndAddressContainer.appendChild(mapContainer);
+            
+            var mapImage = document.createElement("img");
+            mapImage.src = mapImageUrl;
+            mapContainer.appendChild(mapImage);
+            
+            var addressBlock = document.createElement("p");
+            addressBlock.innerHTML = address;
+            mapContainer.appendChild(addressBlock);
+            
+            return mapAndAddressContainer;
+        }
+        
+        function makeThumbnailsBlock(thumbnailImageUrls) {
+            var thumbnails = document.createElement("div");
+            thumbnails.className = "small-6 columns thumbnails";
+            
+            for (var i = 0; i < thumbnailImageUrls.length; i++) {
+                var thumbnail = document.createElement("img");
+                thumbnail.src = thumbnailImageUrls[i];
+                thumbnails.appendChild(thumbnail);
+            }
+            
+            return thumbnails;
+        }
+        
+        function makeNameBlock(hotelName) {
+            var nameRow = document.createElement("div");
+            nameRow.className = "row";
+            
+            var nameHolder = document.createElement("div");
+            nameHolder.className = "large-12 columns fixed title-container";
+            nameRow.appendChild(nameHolder);
+            
+            var name = document.createElement("h2");
+            name.innerHTML = hotelName;
+            nameHolder.appendChild(name);
+            return nameRow;
         }
         
         function makeCardFront(image, hotelName, starRating, formattedPrice, card) {
@@ -137,13 +328,162 @@
             return cardFront;
         }
     </script>
-  </head>
-  <body>    
+    </head>
+    <body>    
       <h1>Cards Against Hotels</h1>
       <div id="cards">
       </div>
       
-      
+      <div class="cardBack" id="cardBackRef">
+          <div class="row">
+              <div class="large-12 columns fixed title-container">
+                  <h2>St. Pancras Renaissance London Hotel</h2>
+              </div>
+          </div>
+
+          <div class="row first">
+              <div class="small-6 columns thumbnails">
+                  <img src="http://images.travelnow.com/hotels/4000000/3910000/3907800/3907784/3907784_69_n.jpg"> <img src="http://images.travelnow.com/hotels/4000000/3910000/3907800/3907784/3907784_51_n.jpg"> <img src="http://images.travelnow.com/hotels/4000000/3910000/3907800/3907784/3907784_107_n.jpg"> <img src="http://images.travelnow.com/hotels/4000000/3910000/3907800/3907784/3907784_129_n.jpg">
+
+                  <p class="more-photos"><a href=""><i class="fi-camera size-18"></i> see more</a></p>
+              </div>
+
+              <div class="small-6 columns map-container">
+                  <div class="map"><img src="img/map_stpancras.png"></div>
+                  <p>Euston Road, London, NW1 2AR, GB</p>
+              </div>
+          </div>
+    
+          <div class="row">
+              <div class="large-12 columns">
+                  <table>
+                      <thead>
+                          <tr>
+                              <th class="room-type-col">Room type</th>
+                              <th class="thumb-col"></th>
+                              <th colspan="2">Price</th>
+                              <th class="book-col"></th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                          <tr>
+                              <td>
+                                  <h6>Barlow Room</h6>
+                                  <p class="show-room-container"><a href="">Show room information</a></p>
+                              </td>
+                              <td><img src="http://images.travelnow.com/hotels/4000000/3910000/3907800/3907784/3907784_165_n.jpg"></td>
+                              <td class="hotel-additional-info sale"><i class="fi-burst-sale"></i> 10% off</td>
+                              <td class="price">
+                                  <strike>$520</strike> <span>$426</span><br>
+                                  nightly price
+                            
+                              </td>
+                              <td class="book-btn"><button class="tiny">Book</button></td>
+                          </tr>
+                    
+                          <tr class="collapsable collapsed">
+                              <td colspan="5">
+                            
+                                  <div class="room-description">344-sq-foot (32-sq-meter) room with city views<br><br><b>Entertainment</b> - WiFi, 32-inch LCD TV with digital channels<br><b>Food &amp; Drink</b> - Coffee/tea maker<br><b>Sleep</b> - Pillowtop bed with premium bedding and a down duvet <br><b>Bathroom</b> - Private bathroom with a shower/tub combination, bathrobes, and a hair dryer</div>
+                            
+                                  <div class="room-options">
+                                      <div class="bed-choices"><p>Bed Choices</p><ul class="bulleted"><li>King Bed</li><li class="last">Queen Bed</li></ul></div>
+                                
+                                      <div class="extra-bed-choices"><p>Extra beds available</p><ul class="bulleted"><li>Rollaway bed</li><li class="last">Crib</li></ul></div>
+    
+                                      <div class="room-details"><p>Room Details</p><ul class="bulleted"><li>Air conditioning</li><li>Bathrobes</li><li>Climate control</li><li>Coffee/tea maker</li><li>Cribs/infant beds available</li><li>Daily housekeeping</li><li>Digital TV service</li><li>Down comforter</li><li>Egyptian-cotton sheets</li><li>Free newspaper</li><li>Hair dryer</li><li>In-room safe</li><li>Iron/ironing board</li><li>LCD TV</li><li>Pay movies</li><li>Phone</li><li>Pillowtop mattress</li><li>Premium bedding</li><li>Private bathroom</li><li>Rollaway/extra beds available</li><li>Room service (24 hours)</li><li>Shower/tub combination</li><li class="last">Turndown service</li></ul></div>
+                                  </div>
+                              </td>
+                          </tr>
+                    
+                          <tr>
+                              <td>
+                                  <h6>Junior Suite</h6>
+                                  <p class="show-room-container"><a href="">Show room information</a></p>
+                              </td>
+                              <td><img src="http://images.travelnow.com/hotels/4000000/3910000/3907800/3907784/3907784_165_n.jpg"></td>
+                              <td class="hotel-additional-info">Non-refundable</td>
+                              <td class="price">
+                                  <span>$575</span><br>
+                                  nightly price
+                            
+                              </td>
+                              <td class="book-btn"><button class="tiny">Book</button></td>
+                          </tr>
+
+                      </tbody>
+                  </table>
+              </div>
+          </div>
+
+          <div class="row">
+              <div class="large-12 columns">
+                  <h4>Hotel Information</h4>
+              </div>
+          </div>
+    
+          <div class="row">
+              <div class="medium-6 columns">
+                  <div class="callout panel">
+                      <h3><small>Details</small></h3>
+                      <ul>
+                          <li><span>Check-in:</span> 4:00PM</li>
+                          <li><span>Check-out:</span> 12:00PM</li>
+                      </ul>
+                  </div>
+              </div>
+
+              <div class="medium-6 columns">
+                  <div class="callout panel">
+                      <h3><small>Premium Amenities</small></h3>
+                      <p>Treat yourself with massages, body treatments, and facials. If you're looking for recreational opportunities, you'll find a health club, an indoor pool, and a sauna. Additional features at this Victorian hotel include wireless Internet access (surcharge), concierge services, and wedding services.</p>
+                  </div>
+              </div>
+          </div>
+
+          <div class="row">
+              <div class="medium-6 columns">
+                  <div class="callout panel">
+                      <h3><small>Rooms</small></h3>
+                      <p>Make yourself at home in one of the 245 air-conditioned rooms featuring LCD televisions. Your pillowtop bed comes with down comforters and Egyptian cotton sheets. Digital television is provided for your entertainment. Private bathrooms with shower/tub combinations feature hair dryers and bathrobes.</p>
+                  </div>
+              </div>
+
+              <div class="medium-6 columns">
+                  <div class="callout panel">
+                      <h3><small>Dining</small></h3>
+                      <p>Enjoy a meal at one of the hotel's dining establishments, which include 2 restaurants and a coffee shop/café. From your room, you can also access 24-hour room service. Relax with a refreshing drink at one of the 2 bars/lounges. Full breakfasts are available for a fee.</p>
+                  </div>
+              </div>
+          </div>
+
+          <div class="row">
+              <div class="large-12 columns" id="details-label">
+                  <h4>The details</h4>
+              </div>
+          </div>
+
+          <div class="row collapsed" id="details-details"><!-- THIS SHOULD EXPAND AND COLLPASE ON CLICK OF The details-->
+              <div class="medium-6 columns">
+                  <h3><small>Policies</small></h3>
+                  <p>Reservations are required for massage services and spa treatments and can be made by contacting the property before arrival at the number on the booking confirmation. </p>
+              </div>
+
+              <div class="medium-6 columns">
+                  <h3><small>Optional extras</small></h3>
+                  <ul>
+                      <li><span>Fee for full breakfast:</span> GBP 18 per person (approximately)</li>
+                      <li><span>Fee for in-room wireless Internet:</span> GBP 7.5 per day (rates may vary)</li>
+                      <li><span>Fee for wireless Internet in public areas:</span> GBP 7.5 per day (rates may vary)</li>
+                      <li><span>Self parking fee:</span> GBP 50 per day</li>
+                      <li><span>Valet parking fee:</span> GBP 50 per day</li>
+                      <li><span>Pet fee:</span> GBP 30 per pet, per stay plus GBP 30 one-time cleaning fee</li>
+                      <li>Rollaway beds are available for an additional fee</li>
+                      <li class="last">The above list may not be comprehensive. Fees and deposits may not include tax and are subject to change.</li>
+                  </ul>
+              </div>
+          </div>
+      </div>
       <script>
           var hotels = [
               {

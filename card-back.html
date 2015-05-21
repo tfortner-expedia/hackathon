@@ -8,8 +8,6 @@
     <link rel="stylesheet" href="css/main.css" type="text/css">
     <link rel="stylesheet" href="css/card-back.css" type="text/css">
     <script src="js/vendor/modernizr.js" type="text/javascript">
-    <script>
-    </script>
 </script>
 </head>
 
@@ -61,7 +59,7 @@
                         <td class="book-btn"><button class="tiny">Book</button></td>
                     </tr>
                     
-                    <tr>
+                    <tr class="collapsable collapsed">
                         <td colspan="5">
                             
                             <div class="room-description">344-sq-foot (32-sq-meter) room with city views<br><br><b>Entertainment</b> - WiFi, 32-inch LCD TV with digital channels<br><b>Food &amp; Drink</b> - Coffee/tea maker<br><b>Sleep</b> - Pillowtop bed with premium bedding and a down duvet <br><b>Bathroom</b> - Private bathroom with a shower/tub combination, bathrobes, and a hair dryer</div>
@@ -143,12 +141,12 @@
     </div>
 
     <div class="row">
-        <div class="large-12 columns" onclick="document.getElementById('detailsdetails').classList.remove('collapsed');">
+        <div class="large-12 columns" id="details-label">
             <h4>The details</h4>
         </div>
     </div>
 
-    <div class="row collapsed" id="detailsdetails"><!-- THIS SHOULD EXPAND AND COLLPASE ON CLICK OF The details-->
+    <div class="row collapsed" id="details-details"><!-- THIS SHOULD EXPAND AND COLLPASE ON CLICK OF The details-->
         <div class="medium-6 columns">
             <h3><small>Policies</small></h3>
             <p>Reservations are required for massage services and spa treatments and can be made by contacting the property before arrival at the number on the booking confirmation. </p>
@@ -168,5 +166,16 @@
             </ul>
         </div>
     </div>
+    <script>
+        function toggleCollapse(id) {
+            var target = document.getElementById(id);
+            if (target.classList.contains("collapsed")) {
+                target.classList.remove("collapsed");
+            } else {
+                target.classList.add("collapsed");
+            }
+        }
+        document.getElementById("details-label").onclick = function() { toggleCollapse('details-details'); };
+    </script>
 </body>
 </html>

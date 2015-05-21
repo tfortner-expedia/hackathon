@@ -175,10 +175,13 @@ ul.bulleted li.last:after {
 .collapsed {
   height: 0px;
   overflow: hidden;
+}
+
+.collapsable {
   -moz-animation-duration: 1.5s;
   -webkit-animation-duration: 1.5s;
-  -moz-animation-name: collapse;
-  -webkit-animation-name: collapse;
+  -moz-animation-name: collapse, expand;
+  -webkit-animation-name: collapse, expand;
 }
 
 @-moz-keyframes collapse {
@@ -197,13 +200,6 @@ ul.bulleted li.last:after {
   to {
     height: 0px;
   }
-
-.expanded {
-  height: auto;
-  -moz-animation-duration: 1.5s;
-  -webkit-animation-duration: 1.5s;
-  -moz-animation-name: expand;
-  -webkit-animation-name: expand;
 }
 
 @-moz-keyframes expand {
