@@ -9,9 +9,6 @@
     <link rel="stylesheet" href="css/rotate.css" />
     <script src="js/vendor/modernizr.js"></script>
     <script>
-        var loadingImage = document.createElement('img');
-        loadingImage.src = "img/loading color.gif";
-    
         function getRandomInt(min, max) {
             return Math.floor(Math.random() * (max - min)) + min;
         }
@@ -77,7 +74,7 @@
 
             var infoButton = document.createElement("div");
             infoButton.className = "large-12 columns";
-            infoButton.innerHTML = '<div class="fi-background"><i class="fi-info"></i></div>';
+            infoButton.innerHTML = '<div class="fi-background fi-info-background"><i class="fi-info"></i></div>';
             infoButton.onclick = function () {
                 card.classList.add("flipped");
             }
@@ -90,16 +87,20 @@
             
             outerCardCasing.appendChild(image);
 
-            // var leftArrow = document.createElement("i");
+//             var leftArrow = document.createElement("i");
 //             leftArrow.className = "fi-arrow-left";
 //             cardFront.appendChild(leftArrow);
-//
+
+            var arrowBox = document.createElement("div");
+            arrowBox.className = "fi-background fi-arrow-right-box";
+            cardFront.appendChild(arrowBox);
+
             var rightArrow = document.createElement("i");
             rightArrow.className = "fi-arrow-right";
             rightArrow.onclick = function() {
                 card.classList.add("swiped");
             }
-            cardFront.appendChild(rightArrow);
+            arrowBox.appendChild(rightArrow);
 
             var hotelHighlights = document.createElement("div");
             hotelHighlights.className = "row hotel-highlights";
@@ -172,7 +173,7 @@
                   "name": "Park Plaza Riverbank London",
                   "starRating": 4,
                   "imageUrl": "img/hotels/1183908_107_z.jpg",
-                  "price": "1 Sandwich"
+                  "price": "1 Sandwich w/ Bacon"
               }
           ]
       

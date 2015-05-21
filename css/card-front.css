@@ -28,7 +28,7 @@ h4 {
 	font-size: 24px;
 }
 .fi-star {
-	font-size: 18px;
+	font-size: 18px;  
 }
 .fi-info {
     font-size: 24px;
@@ -36,18 +36,21 @@ h4 {
     cursor: pointer;
 }
 .fi-background {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 18px;
+  line-height: 1.5rem;
+  text-align: center;
+  background: #fff;
+  filter:alpha(opacity=80); /* IE */
+  -moz-opacity:0.8; /* Mozilla */
+  opacity: 0.8;
+}
+
+.fi-info-background {
 	position: relative;
 	top: 2rem;
 	float: right;
 	right: .75rem;
-    width: 1.5rem;
-    height: 1.5rem;
-    border-radius: 18px;
-    line-height: 1.5rem;
-    text-align: center;
-    background: #fff;
-    filter:alpha(opacity=80); /* IE */
-    -moz-opacity:0.8; /* Mozilla */
-    opacity: 0.8;
-    z-index: 3;
+  z-index: 3;
 }
