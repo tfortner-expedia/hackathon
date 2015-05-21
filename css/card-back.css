@@ -32,7 +32,7 @@ ul li {
 ul li.last {
 	margin-top: 1rem;
 }
-span {
+ul li span {
 	font-weight: bold;
 }
 .thumbnails img {
@@ -83,6 +83,10 @@ table {
 }
 table tr td {
 	 vertical-align: top;
+	 border-bottom: #DDDDDD 1px solid;
+}
+table tr.last td {
+	border: 0;
 }
 table tr th {
 	font-weight: normal !important;
@@ -220,11 +224,9 @@ ul.bulleted li.last:after {
     height: auto;
   }
 }
-
 #details-label {
   cursor: pointer;
 }
-
 .room-info-link {
   color: #2ba6cb;
   text-decoration: none;
