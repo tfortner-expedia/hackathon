@@ -4,6 +4,10 @@
 .fixed h2 {
 	background: #FFF;
 	padding: .5rem 1rem;
+	margin: 0;
+}
+.title-container {
+	padding: 0;
 }
 .row.first {
 	margin-top: 4.2rem;
