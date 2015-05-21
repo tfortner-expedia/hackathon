@@ -106,3 +106,55 @@ p.show-room-container {
 	font-size: .75rem;
 	margin-top: .5rem;
 }
+
+.collapsed {
+  height: 0px;
+  overflow: hidden;
+  -moz-animation-duration: 1.5s;
+  -webkit-animation-duration: 1.5s;
+  -moz-animation-name: collapse;
+  -webkit-animation-name: collapse;
+}
+
+@-moz-keyframes collapse {
+  from {
+    height: auto;
+  }
+  to {
+    height: 0px;
+  }
+}
+
+@-webkit-keyframes collapse {
+  from {
+    height: auto;
+  }
+  to {
+    height: 0px;
+  }
+
+.expanded {
+  height: auto;
+  -moz-animation-duration: 1.5s;
+  -webkit-animation-duration: 1.5s;
+  -moz-animation-name: expand;
+  -webkit-animation-name: expand;
+}
+
+@-moz-keyframes expand {
+  from {
+    height: 0px;
+  }
+  to {
+    height: auto;
+  }
+}
+
+@-webkit-keyframes expand {
+  from {
+    height: 0px;
+  }
+  to {
+    height: auto;
+  }
+}

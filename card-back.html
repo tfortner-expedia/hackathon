@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="css/main.css" type="text/css">
     <link rel="stylesheet" href="css/card-back.css" type="text/css">
     <script src="js/vendor/modernizr.js" type="text/javascript">
+    <script>
+    </script>
 </script>
 </head>
 
@@ -116,12 +118,12 @@
     </div>
 
     <div class="row">
-        <div class="large-12 columns">
+        <div class="large-12 columns" onclick="document.getElementById('detailsdetails').classList.remove('collapsed');">
             <h4>The details</h4>
         </div>
     </div>
 
-    <div class="row"><!-- THIS SHOULD EXPAND AND COLLPASE ON CLICK OF The details-->
+    <div class="row collapsed" id="detailsdetails"><!-- THIS SHOULD EXPAND AND COLLPASE ON CLICK OF The details-->
         <div class="medium-6 columns">
             <h3><small>Policies</small></h3>
             <p>Policy information</p>
