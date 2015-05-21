@@ -152,3 +152,7 @@ i.fi-arrow-left, i.fi-arrow-right {
   margin-right: 25px;
   right: 0px;
 }
+
+iframe {
+  border: 3px solid #FFF;
+}
