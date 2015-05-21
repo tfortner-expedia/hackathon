@@ -54,10 +54,17 @@
         function makeCardBack(card) {
             var cardBack = document.createElement("div");
             cardBack.className = "cardBack";
-            cardBack.style.backgroundColor = "white";
-            cardBack.onclick = function() {
+            
+            var closeBox = document.createElement("div");
+            closeBox.className = "fi-background fi-close-box";
+            cardBack.appendChild(closeBox);
+            
+            var closeButton = document.createElement("i");
+            closeButton.className = "fi-x";
+            closeButton.onclick = function() {
                 card.classList.remove("flipped");
             };
+            closeBox.appendChild(closeButton);
             
             var backFrame = document.createElement("iframe");
             backFrame.src = "card-back.html";
@@ -91,16 +98,16 @@
 //             leftArrow.className = "fi-arrow-left";
 //             cardFront.appendChild(leftArrow);
 
-            var arrowBox = document.createElement("div");
-            arrowBox.className = "fi-background fi-arrow-right-box";
-            cardFront.appendChild(arrowBox);
+            var rightArrowBox = document.createElement("div");
+            rightArrowBox.className = "fi-background fi-arrow-right-box";
+            rightArrowBox.onclick = function() {
+                card.classList.add("swiped");
+            }
+            cardFront.appendChild(rightArrowBox);
 
             var rightArrow = document.createElement("i");
             rightArrow.className = "fi-arrow-right";
-            rightArrow.onclick = function() {
-                card.classList.add("swiped");
-            }
-            arrowBox.appendChild(rightArrow);
+            rightArrowBox.appendChild(rightArrow);
 
             var hotelHighlights = document.createElement("div");
             hotelHighlights.className = "row hotel-highlights";
